@@ -1,5 +1,5 @@
 {
-  "name": "@zhusee2/homebridge-dyson-phc-link",
+  "name": "homebridge-dyson-phc-link",
   "version": "1.0.0",
   "description": "homebridge plugin for dyson pure hot+cool link accessory",
   "main": "index.js",
