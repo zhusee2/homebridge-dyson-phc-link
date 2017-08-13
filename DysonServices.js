@@ -47,7 +47,25 @@ class HeaterCooler extends Service.HeaterCooler {
   }
 }
 
+class Fan extends Service.Fanv2 {
+  constructor(...args) {
+    super(...args);
+
+    this.addCharacteristic(Characteristic.CurrentFanState);
+    this.addCharacteristic(Characteristic.TargetFanState);
+    this.addCharacteristic(Characteristic.SwingMode);
+
+    this.getCharacteristic(Characteristic.RotationSpeed)
+      .setProps({
+        minValue: 1,
+        maxValue: 10,
+        minStep: 1,
+      });
+  }
+}
+
 module.exports = {
   AirQualitySensor,
   HeaterCooler,
+  Fan,
 };

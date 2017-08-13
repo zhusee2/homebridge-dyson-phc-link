@@ -27,7 +27,7 @@ class DysonPHCLink {
 
     this.services = {
       heater: new DysonServices.HeaterCooler(),
-      fan: new Service.Fanv2(),
+      fan: new DysonServices.Fan(),
       airSensor: new DysonServices.AirQualitySensor(),
     };
   }
