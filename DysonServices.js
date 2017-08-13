@@ -43,6 +43,13 @@ class HeaterCooler extends Service.HeaterCooler {
         minStep: 1,
       });
 
+    this.getCharacteristic(Characteristic.RotationSpeed)
+      .setProps({
+        minValue: 0,
+        maxValue: 10,
+        minStep: 1,
+      });
+
     return this;
   }
 }
@@ -57,7 +64,7 @@ class Fan extends Service.Fanv2 {
 
     this.getCharacteristic(Characteristic.RotationSpeed)
       .setProps({
-        minValue: 1,
+        minValue: 0,
         maxValue: 10,
         minStep: 1,
       });
