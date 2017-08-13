@@ -4,6 +4,7 @@ class AirQualitySensor extends Service.AirQualitySensor {
   constructor(...args) {
     super(...args);
 
+    // Extra characteristics
     this.addCharacteristic(Characteristic.FilterLifeLevel)
       .setProps({
         minValue: 0,
@@ -19,6 +20,7 @@ class HeaterCooler extends Service.HeaterCooler {
   constructor(...args) {
     super(...args);
 
+    // Required characteristics
     this.getCharacteristic(Characteristic.CurrentHeaterCoolerState)
       .setProps({
         validValues: [
@@ -36,19 +38,23 @@ class HeaterCooler extends Service.HeaterCooler {
         ]
       });
 
-    this.getCharacteristic(Characteristic.HeatingThresholdTemperature)
+    // Optional characteristics
+    this.addCharacteristic(Characteristic.HeatingThresholdTemperature)
       .setProps({
         minValue: 10,
         maxValue: 30,
         minStep: 1,
       });
 
-    this.getCharacteristic(Characteristic.RotationSpeed)
+    this.addCharacteristic(Characteristic.RotationSpeed)
       .setProps({
         minValue: 0,
         maxValue: 10,
         minStep: 1,
       });
+
+    // Extra characteristics
+    this.addCharacteristic(Characteristic.SwingMode);
 
     return this;
   }
@@ -58,6 +64,7 @@ class Fan extends Service.Fanv2 {
   constructor(...args) {
     super(...args);
 
+    // Optional characteristics
     this.addCharacteristic(Characteristic.CurrentFanState);
     this.addCharacteristic(Characteristic.TargetFanState);
     this.addCharacteristic(Characteristic.SwingMode);
