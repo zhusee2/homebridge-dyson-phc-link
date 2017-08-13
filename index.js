@@ -29,6 +29,8 @@ class DysonPHCLink {
       heater: new DysonServices.HeaterCooler(),
       fan: new DysonServices.Fan(),
       airSensor: new DysonServices.AirQualitySensor(),
+      nightModeSwitch: new Service.Switch('Night Mode', 'night_mode'),
+      focusedModeSwitch: new Service.Switch('Focused Mode', 'focused_mode'),
     };
   }
 
