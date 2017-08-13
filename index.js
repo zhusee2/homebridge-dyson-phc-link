@@ -1,7 +1,9 @@
+const cacheHomebridge = require('./homebridge').cacheHomebridge;
 let Accessory, Service, Characteristic, UUIDGen;
 
 module.exports = (homebridge) => {
   console.log(`homebridge API version: ${homebridge.version}`);
+  cacheHomebridge(homebridge);
 
   Accessory = homebridge.hap.Accessory;
   Service = homebridge.hap.Service;
