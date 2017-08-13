@@ -1,5 +1,20 @@
 const { Service, Characteristic } = require('./homebridge');
 
+class AirQualitySensor extends Service.AirQualitySensor {
+  constructor(...args) {
+    super(...args);
+
+    this.addCharacteristic(Characteristic.FilterLifeLevel)
+      .setProps({
+        minValue: 0,
+        maxValue: 4300,
+      })
+
+    // FILTER_OK = 0; CHANGE_FILTER = 1;
+    this.addCharacteristic(Characteristic.FilterChangeIndication);
+  }
+}
+
 class HeaterCooler extends Service.HeaterCooler {
   constructor(...args) {
     super(...args);
@@ -33,5 +48,6 @@ class HeaterCooler extends Service.HeaterCooler {
 }
 
 module.exports = {
+  AirQualitySensor,
   HeaterCooler,
 };
